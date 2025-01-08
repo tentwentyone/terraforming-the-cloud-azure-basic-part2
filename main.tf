@@ -67,6 +67,8 @@ data "azurerm_client_config" "current" {
 
 
 
+
+
 # # 2.1 Descomentar o module e output
 
 # module "azure_container_app" {
@@ -93,23 +95,28 @@ data "azurerm_client_config" "current" {
 
 
 
+
+
+
 ## 2.2 Descomentar o module e output
 
 # module "count_azure_container_app" {
 #   source = "./modules/container-app"
 
-#   count = 2
-#   resource_group_name                           = module.resource_group.resource_group_name
-#   resource_group_location                       = module.resource_group.resource_group_location
-#   container_app_name                            = "${var.user_prefix}-${module.resource_group.random_pet}-app-${count.index}"
-#   container_app_environment_name                = "${var.user_prefix}-${module.resource_group.random_pet}-env-${count.index}"
-#   container_app_cpu                             = 0.25
-#   container_app_memory                          = "0.5Gi"
-#   container_name                                = "github-rocks"
-#   container_image                               = "ghcr.io/tentwentyone/terraforming-the-cloud-azure-basic-part2/github-rocks"
-#   container_image_tag                           = "1.0.0"
+#   count                          = 2
+#   resource_group_name            = module.resource_group.resource_group_name
+#   resource_group_location        = module.resource_group.resource_group_location
+#   container_app_name             = "${var.user_prefix}-${module.resource_group.random_pet}-app-${count.index}"
+#   container_app_environment_name = "${var.user_prefix}-${module.resource_group.random_pet}-env-${count.index}"
+#   container_app_cpu              = 0.25
+#   container_app_memory           = "0.5Gi"
+#   container_name                 = "github-rocks"
+#   container_image                = "ghcr.io/tentwentyone/terraforming-the-cloud-azure-basic-part2/github-rocks"
+#   container_image_tag            = "1.0.0"
 # }
 
 # output "count_container_app_name" {
 #   value = flatten([for app in module.count_azure_container_app : app.container_app_name])
 # }
+
+

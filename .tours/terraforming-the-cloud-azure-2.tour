@@ -1,0 +1,369 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "terraforming-the-cloud-azure-2",
+  "steps": [
+    {
+      "file": "README.md",
+      "description": "Bem-vindo à segunda parte do nosso workshop!\n\nAqui tens um breve resumo dos conteúdos abordados neste módulo.\n\nAproveita para dar uma vista de olhos nos tópicos e verificar se tens todos os requisitos para prosseguir com o workshop.",
+      "line": 1
+    },
+    {
+      "file": "README.md",
+      "description": "No terminal faz login em Azure utilizando o comando:\n- **az login --use-device-code**",
+      "line": 2
+    },
+    {
+      "file": "README.md",
+      "description": "Para definir a subscrição corre o seguinte comando:\n\n- **az account set --subscription \"insert-value\"**\n\nSe quiseres ver todas as tuas subscrições utiliza:\n\n- **az account list --output table**",
+      "line": 3
+    },
+    {
+      "file": "README.md",
+      "description": "Certifica-te que estás na subscrição correcta utilizando o comando:\n\n- **az account show**",
+      "line": 4
+    },
+    {
+      "file": "scripts/get-azure-credentials.sh",
+      "description": "Executa o seguinte script com o comando:\n\n- **source ./scripts/get-azure-credentials.sh**",
+      "line": 1
+    },
+    {
+      "file": "terraform.tfvars",
+      "description": "Após obteres os resultados do **AZURE_SUBSCRIPTION_ID** e **AZURE_TENANT_ID** define também um prefixo, no seguinte formato:\n\n- **user_prefix = \"valor\".**\n\n❗Garante que todas as tuas alterações estão salvas com o comando:\n\n- Windows: **ctrl+s**.\n- Mac: **cmd+s**.",
+      "line": 1
+    },
+    {
+      "file": "modules/container-app/main.tf",
+      "description": "1. **Uso Básico de Modulos**\n\n- Neste capitulo iremos abordar a utilização de [terraform modules](https://developer.hashicorp.com/terraform/language/modules/syntax)",
+      "line": 1,
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 6
+        },
+        "end": {
+          "line": 1,
+          "character": 27
+        }
+      }
+    },
+    {
+      "file": "main.tf",
+      "description": "1.1 **Resource Group Module**\n\nNeste capitulo vamos instanciar o nosso Resource Group com base num modulo.\n\nPara criarmos recursos invocando um module descomenta o conteúdo do exercício 1.1 com o comando:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**.",
+      "line": 29
+    },
+    {
+      "file": "main.tf",
+      "description": "Por norma, os outputs estariam no **outputs.tf** mas aqui estão juntos no âmbito da formação.\n\n❗Garante que todas as tuas alterações estão salvas com o comando:\n\n- Windows: **ctrl+s**.\n- Mac: **cmd+s**.\n",
+      "line": 42
+    },
+    {
+      "file": "main.tf",
+      "selection": {
+        "start": {
+          "line": 35,
+          "character": 5
+        },
+        "end": {
+          "line": 35,
+          "character": 40
+        }
+      },
+      "description": "- Quando recorremos a um módulo, devemos indicar a sua source. Neste caso, estamos a apontar para **./modules/resource-group**."
+    },
+    {
+      "file": "main.tf",
+      "description": "Devemos também fazer um novo **init** para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n- **terraform init**",
+      "line": 1
+    },
+    {
+      "file": "main.tf",
+      "description": "Executar o plan:\n\n- **terraform plan**",
+      "line": 2
+    },
+    {
+      "file": "main.tf",
+      "description": "Como as variables do modulo têm valores default, se forem omitidos no módulo, irão adquirir esses valores.\n\n- Apesar de não termos adicionado o parametro tags ao nosso módulo, ele está a adicionar uma tag **\"project\" = \"terraform-workshop-part-2\"** porque é esse o valor default da variável tags no módulo.",
+      "line": 30
+    },
+    {
+      "file": "main.tf",
+      "description": "Executar o apply:\n\n- **terraform apply**\n\n❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 30 sec.",
+      "line": 31
+    },
+    {
+      "file": "main.tf",
+      "description": "Podemos verificar que o resource group foi corretamente criado, usando o comando:\n\n- **az group show --output table --name=$(terraform output -raw resource_group_name)**",
+      "line": 32,
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 3
+        },
+        "end": {
+          "line": 3,
+          "character": 83
+        }
+      }
+    },
+    {
+      "file": "main.tf",
+      "description": "Para verificar todos os resource groups:\n\n- **az group list --output table**",
+      "line": 33,
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 5
+        },
+        "end": {
+          "line": 3,
+          "character": 33
+        }
+      }
+    },
+    {
+      "file": "main.tf",
+      "description": "1.2 **Vantagem dos módulos**\n\nNeste capitulo iremos abordar a importância de módulos em terraform de modo a tornar o código reutilizável e organizado\n\nA **grande vantagem** de usar módulos é **impedir a repetição** de múltiplos recursos.\n\n- Se quisessemos criar outro **resource_group** com os mesmos recursos, sem recorrer a módulos, teriamos de voltar a criar outro **random_pet** e outro **resource_group**.",
+      "line": 47
+    },
+    {
+      "file": "main.tf",
+      "description": "Neste exemplo o módulo só tem dois recursos, mas podia ter muitos mais.\n\n- Recorrendo a módulos, só precisariamos de ter outra invocação, com a mesma source, com um nome e/ou parametros diferentes para as nossas necessidades.",
+      "line": 48
+    },
+    {
+      "file": "main.tf",
+      "description": "Descomenta o module **reused_resource_group** (exercício 1.2)\n\nUtiliza o comando:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**.",
+      "line": 48
+    },
+    {
+      "file": "main.tf",
+      "description": "❗Garante que todas as tuas alterações estão salvas com o comando:\n\n- Windows: **ctrl+s**.\n- Mac: **cmd+s**.\n\n⚠️ Como estamos a acrescentar um novo módulo, temos de correr o **terraform init** mais uma vez para ele ser instalado.",
+      "line": 49,
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 5,
+          "character": 1
+        }
+      }
+    },
+    {
+      "file": "main.tf",
+      "description": "Executar o init:\n\n- **terraform init**",
+      "line": 47
+    },
+    {
+      "file": "main.tf",
+      "description": "Executar o plan:\n\n- **terraform plan**",
+      "line": 48
+    },
+    {
+      "file": "main.tf",
+      "description": "Executar o apply:\n\n- **terraform apply**\n\n❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 30 sec.",
+      "line": 49
+    },
+    {
+      "file": "main.tf",
+      "description": "Podemos verificar que o novo **resource group** foi corretamente criado:\n\n- **az group show --output table --name=$(terraform output -raw reused_resource_group_name)**",
+      "line": 65,
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 32
+        },
+        "end": {
+          "line": 1,
+          "character": 46
+        }
+      }
+    },
+    {
+      "file": "main.tf",
+      "description": "Para verificar todos os **resource groups**:\n\n- **az group list --output table**",
+      "line": 66
+    },
+    {
+      "file": "main.tf",
+      "description": "2. **Container App Module**\n\nNeste capitulo iremos abordar a utilização de um módulo para criar uma **Azure Container App**, usando dependências de outros módulos e aprender sobre o meta-argument count.\n",
+      "line": 67,
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 6
+        },
+        "end": {
+          "line": 1,
+          "character": 26
+        }
+      }
+    },
+    {
+      "file": "main.tf",
+      "description": "Vamos utilizar um módulo para a criação de uma **Container App**.\n\n- Descomenta o module **azure_container_app** (exercício 2.1)\n\nUtiliza o comando:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**.",
+      "line": 68
+    },
+    {
+      "file": "main.tf",
+      "description": "Nos argumentos **resource_group_name** e **resource_group_location** estamos a fazer alusão aos campos que provém do **módulo resource_group.**\n\n- À semelhança da invocação do módulo dos exercícios anteriores temos de definir a source deste módulo. Como podes ver estamos a apontar para **./modules/container-app** visto que este é um módulo distinto do que visa criar os resource-groups.",
+      "line": 67
+    },
+    {
+      "file": "main.tf",
+      "description": "Devemos também fazer um novo **init** para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n- **terraform init**",
+      "line": 68
+    },
+    {
+      "file": "main.tf",
+      "description": "Executar o plan:\n\n- **terraform plan**",
+      "line": 69
+    },
+    {
+      "file": "main.tf",
+      "description": "Executar o apply:\n\n- **terraform apply**",
+      "line": 70
+    },
+    {
+      "file": "main.tf",
+      "description": "❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 2 min.",
+      "line": 71
+    },
+    {
+      "file": "main.tf",
+      "description": "Podemos verificar que a container app foi corretamente criada:\n\n- **az containerapp show --name=$(terraform output -raw container_app_name) --resource-group=$(terraform output -raw resource_group_name) --output table**",
+      "line": 94,
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 5
+        },
+        "end": {
+          "line": 3,
+          "character": 153
+        }
+      }
+    },
+    {
+      "file": "main.tf",
+      "description": "Para verificar todas as container apps:\n\n- **az containerapp list --output table**",
+      "line": 95
+    },
+    {
+      "file": "main.tf",
+      "description": "2.2 **Invocar o módulo count_azure_container_app**.\n\n- Utilizamos o meta-argumento (argumentos especiais para ir para lá da definição original do recurso) **count** para atingir o objectivo de criar múltiplas instâncias dos recursos definidos no módulo sem termos de criar blocos de recursos adicionais na nossa configuração ou fazer multiplas invocações do mesmo módulo.",
+      "line": 96
+    },
+    {
+      "file": "main.tf",
+      "selection": {
+        "start": {
+          "line": 101,
+          "character": 1
+        },
+        "end": {
+          "line": 101,
+          "character": 37
+        }
+      },
+      "description": "Descomenta o modulo **count_azure_container_app** (exercício 2.2)\n\nPara tal seleciona o conteúdo e prime:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**."
+    },
+    {
+      "file": "main.tf",
+      "selection": {
+        "start": {
+          "line": 118,
+          "character": 1
+        },
+        "end": {
+          "line": 120,
+          "character": 4
+        }
+      },
+      "description": "O **output** do **count** recorre a um for para iterar os nomes das várias container apps que estamos a criar."
+    },
+    {
+      "file": "main.tf",
+      "description": "Neste caso, assumimos que queremos duas container apps exatamente com os mesmos parâmetros.\n\nO **count** não seria uma boa opção se quisessemos mudar os parâmetros entre os nossos recursos.\n\nAqui, estamos a usar o *count.index* para diferenciar os nomes dos recursos com base no **count**, uma vez que os nomes têm de ser únicos, desta forma, os nomes terão um número correspondente á sua posição do count a começar em 0.",
+      "line": 98,
+      "selection": {
+        "start": {
+          "line": 5,
+          "character": 91
+        },
+        "end": {
+          "line": 5,
+          "character": 96
+        }
+      }
+    },
+    {
+      "file": "main.tf",
+      "description": "❗Garante que todas as tuas alterações estão salvas com o comando:\n\n- Windows: **ctrl+s**.\n- Mac: **cmd+s**.\n",
+      "line": 99
+    },
+    {
+      "file": "main.tf",
+      "description": "Devemos também fazer um novo init para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n- **terraform init**",
+      "line": 100
+    },
+    {
+      "file": "main.tf",
+      "description": "Executar o plan:\n\n- **terraform plan**",
+      "line": 99
+    },
+    {
+      "file": "main.tf",
+      "description": "Executar o apply:\n\n- **terraform apply**\n\n❗Não te esqueças de escrever yes para confirmar o apply.\n\n⌛Tempo do apply 2 min.",
+      "line": 98
+    },
+    {
+      "file": "main.tf",
+      "description": "Podemos verificar que as container apps foram corretamente criadas:\n\n-  **for app_name in $(terraform output -json count_container_app_name | jq -r '.[]'); do**\n  **az containerapp show --name $app_name --resource-group $(terraform output -raw resource_group_name)** **--output table**\n\n**done**",
+      "line": 121
+    },
+    {
+      "file": "main.tf",
+      "description": "Para verificar todas as container apps:\n\n- **az containerapp list --output table**",
+      "line": 120
+    },
+    {
+      "file": "main.tf",
+      "description": "Finalmente, Vamos voltar a correr este comando:\n\n- **az containerapp show --name=$(terraform output -raw container_app_name) --resource-group=$(terraform output -raw resource_group_name) --output table**",
+      "line": 119
+    },
+    {
+      "file": "main.tf",
+      "description": "- Copia o link da coluna **FQDN** e colar no nosso browser numa janela/tab à parte no teu browser.",
+      "line": 122,
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 28
+        },
+        "end": {
+          "line": 1,
+          "character": 32
+        }
+      }
+    },
+    {
+      "file": "main.tf",
+      "description": "3. **Wrap-up & Destroy**\nPor fim, podemos destruir tudo de uma só vez.\n\nCorre o comando:\n\n- - **terraform destroy**\n\n⏰ Notem que devido à quantidade de recursos envolvidos, a operação de destroy pode demorar entre 10 a 15 minutos.\n\n🔚🏁 Chegámos ao fim 🏁🔚",
+      "line": 123,
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 6
+        },
+        "end": {
+          "line": 1,
+          "character": 23
+        }
+      }
+    }
+  ],
+  "ref": "main"
+}
