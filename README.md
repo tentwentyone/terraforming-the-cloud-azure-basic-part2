@@ -110,7 +110,7 @@ Abre a diretoria do projecto:
 cd para o terraforming-the-cloud-azure-basic-part2
 ```
 
-Inicia o codetour:
+Abre a diretoria com o comando:
 
 ```bash
 ctrl+k+ctrl+o

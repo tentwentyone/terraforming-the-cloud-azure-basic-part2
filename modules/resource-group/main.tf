@@ -1,3 +1,4 @@
+
 resource "random_pet" "this" {
   length    = var.random_pet_length
   separator = var.random_pet_separator
