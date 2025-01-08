@@ -14,7 +14,7 @@
     },
     {
       "file": "README.md",
-      "description": "Para definir a subscrição corre o seguinte comando:\n\n- **az account set --subscription \"insert-value\"**\n\nSe quiseres ver todas as tuas subscrições utiliza:\n\n- **az account list --output table**",
+      "description": "Para definir a subscrição corre o seguinte comando:\n\n- **az account set --subscription < insert-value >**\n\nSe quiseres ver todas as tuas subscrições utiliza:\n\n- **az account list --output table**",
       "line": 3
     },
     {
@@ -82,9 +82,18 @@
       "line": 2
     },
     {
-      "file": "main.tf",
-      "description": "Como as variables do modulo têm valores default, se forem omitidos no módulo, irão adquirir esses valores.\n\n- Apesar de não termos adicionado o parametro tags ao nosso módulo, ele está a adicionar uma tag **\"project\" = \"terraform-workshop-part-2\"** porque é esse o valor default da variável tags no módulo.",
-      "line": 30
+      "file": "modules/resource-group/main.tf",
+      "selection": {
+        "start": {
+          "line": 12,
+          "character": 3
+        },
+        "end": {
+          "line": 12,
+          "character": 24
+        }
+      },
+      "description": "Como as variables do modulo têm valores default, se forem omitidos no módulo, irão adquirir esses valores.\n\n- Apesar de não termos adicionado o parametro tags ao nosso módulo, ele está a adicionar uma tag **\"project\" = \"terraform-workshop-part-2\"** porque é esse o valor default da variável tags no módulo."
     },
     {
       "file": "main.tf",
@@ -127,9 +136,9 @@
       "line": 47
     },
     {
-      "file": "main.tf",
+      "file": "modules/resource-group/main.tf",
       "description": "Neste exemplo o módulo só tem dois recursos, mas podia ter muitos mais.\n\n- Recorrendo a módulos, só precisariamos de ter outra invocação, com a mesma source, com um nome e/ou parametros diferentes para as nossas necessidades.",
-      "line": 48
+      "line": 1
     },
     {
       "file": "main.tf",
@@ -208,8 +217,31 @@
     },
     {
       "file": "main.tf",
-      "description": "Nos argumentos **resource_group_name** e **resource_group_location** estamos a fazer alusão aos campos que provém do **módulo resource_group.**\n\n- À semelhança da invocação do módulo dos exercícios anteriores temos de definir a source deste módulo. Como podes ver estamos a apontar para **./modules/container-app** visto que este é um módulo distinto do que visa criar os resource-groups.",
-      "line": 67
+      "selection": {
+        "start": {
+          "line": 75,
+          "character": 5
+        },
+        "end": {
+          "line": 76,
+          "character": 83
+        }
+      },
+      "description": "- Nos argumentos **resource_group_name** e **resource_group_location** estamos a fazer alusão aos campos que provém do **módulo resource_group.**\n"
+    },
+    {
+      "file": "main.tf",
+      "selection": {
+        "start": {
+          "line": 73,
+          "character": 5
+        },
+        "end": {
+          "line": 73,
+          "character": 39
+        }
+      },
+      "description": "- À semelhança da invocação do módulo dos exercícios anteriores temos de definir a source deste módulo. Como podes ver estamos a apontar para **./modules/container-app** visto que este é um módulo distinto do que visa criar os resource-groups."
     },
     {
       "file": "main.tf",
