@@ -90,11 +90,11 @@
       "file": "modules/resource-group/main.tf",
       "selection": {
         "start": {
-          "line": 12,
-          "character": 3
+          "line": 13,
+          "character": 1
         },
         "end": {
-          "line": 12,
+          "line": 13,
           "character": 24
         }
       },
