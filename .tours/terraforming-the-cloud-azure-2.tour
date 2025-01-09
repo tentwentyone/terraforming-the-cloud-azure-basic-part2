@@ -9,12 +9,17 @@
     },
     {
       "file": "README.md",
+      "description": "Certifica-te que estás no teu terminal fazendo o comando:\n- **ctrl+ç**\n\nAlternativamente, no canto superior esquerdo, podes também clicar em:\n\n- **View** e depois selecionar **Terminal**",
+      "line": 5
+    },
+    {
+      "file": "README.md",
       "description": "No terminal faz login em Azure utilizando o comando:\n- **az login --use-device-code**",
       "line": 2
     },
     {
       "file": "README.md",
-      "description": "Para definir a subscrição corre o seguinte comando:\n\n- **az account set --subscription < insert-value >**\n\nSe quiseres ver todas as tuas subscrições utiliza:\n\n- **az account list --output table**",
+      "description": "Para definir a subscrição:\n\n- Seleciona-a de entre as opções disponíveis no teu terminal recorrendo ao Nº da mesma.\n\nAlternativamente executa o comando:\n\n- **az account set --subscription < insert-value > (Subscription ID ou Subscription Name)**\n\nSe quiseres ver todas as tuas subscrições utiliza:\n\n- **az account list --output table**",
       "line": 3
     },
     {
