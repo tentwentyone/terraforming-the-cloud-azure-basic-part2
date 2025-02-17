@@ -14,22 +14,22 @@
     },
     {
       "file": "README.md",
-      "description": "No terminal faz login em Azure utilizando o comando:\n- **az login --use-device-code**",
+      "description": "No terminal faz login em Azure utilizando o comando:\n>> az login --use-device-code",
       "line": 2
     },
     {
       "file": "README.md",
-      "description": "Para definir a subscrição:\n\n- Seleciona-a de entre as opções disponíveis no teu terminal recorrendo ao Nº da mesma.\n\nAlternativamente executa o comando:\n\n- **az account set --subscription < insert-value > (Subscription ID ou Subscription Name)**\n\nSe quiseres ver todas as tuas subscrições utiliza:\n\n- **az account list --output table**",
+      "description": "Para definir a subscrição:\n\n- Seleciona-a de entre as opções disponíveis no teu terminal recorrendo ao Nº da mesma.\n\nAlternativamente executa o comando:\n\n- **az account set --subscription < insert-value > (Subscription ID ou Subscription Name)**\n\nSe quiseres ver todas as tuas subscrições utiliza:\n\n>> az account list --output table",
       "line": 3
     },
     {
       "file": "README.md",
-      "description": "Certifica-te que estás na subscrição correcta utilizando o comando:\n\n- **az account show**",
+      "description": "Certifica-te que estás na subscrição correcta utilizando o comando:\n\n>> az account show",
       "line": 4
     },
     {
       "file": "scripts/get-azure-credentials.sh",
-      "description": "Executa o seguinte script com o comando:\n\n- **source ./scripts/get-azure-credentials.sh**",
+      "description": "Executa o seguinte script com o comando:\n\n>> source ./scripts/get-azure-credentials.sh",
       "line": 1
     },
     {
@@ -78,12 +78,12 @@
     },
     {
       "file": "main.tf",
-      "description": "Devemos também fazer um novo **init** para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n- **terraform init**",
+      "description": "Devemos também fazer um novo **init** para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n>> terraform init",
       "line": 1
     },
     {
       "file": "main.tf",
-      "description": "Executar o plan:\n\n- **terraform plan**",
+      "description": "Executar o plan:\n\n>> terraform plan",
       "line": 2
     },
     {
@@ -102,12 +102,12 @@
     },
     {
       "file": "main.tf",
-      "description": "Executar o apply:\n\n- **terraform apply**\n\n❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 30 sec.",
+      "description": "Executar o apply:\n\n>> terraform apply\n\n❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 30 sec.",
       "line": 31
     },
     {
       "file": "main.tf",
-      "description": "Podemos verificar que o resource group foi corretamente criado, usando o comando:\n\n- **az group show --output table --name=$(terraform output -raw resource_group_name)**",
+      "description": "Podemos verificar que o resource group foi corretamente criado, usando o comando:\n\n>> az group show --output table --name=$(terraform output -raw resource_group_name)",
       "line": 32,
       "selection": {
         "start": {
@@ -122,7 +122,7 @@
     },
     {
       "file": "main.tf",
-      "description": "Para verificar todos os resource groups:\n\n- **az group list --output table**",
+      "description": "Para verificar todos os resource groups:\n\n>> az group list --output table",
       "line": 33,
       "selection": {
         "start": {
@@ -167,22 +167,22 @@
     },
     {
       "file": "main.tf",
-      "description": "Executar o init:\n\n- **terraform init**",
+      "description": "Executar o init:\n\n>> terraform init",
       "line": 47
     },
     {
       "file": "main.tf",
-      "description": "Executar o plan:\n\n- **terraform plan**",
+      "description": "Executar o plan:\n\n>> terraform plan",
       "line": 48
     },
     {
       "file": "main.tf",
-      "description": "Executar o apply:\n\n- **terraform apply**\n\n❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 30 sec.",
+      "description": "Executar o apply:\n\n>> terraform apply\n\n❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 30 sec.",
       "line": 49
     },
     {
       "file": "main.tf",
-      "description": "Podemos verificar que o novo **resource group** foi corretamente criado:\n\n- **az group show --output table --name=$(terraform output -raw reused_resource_group_name)**",
+      "description": "Podemos verificar que o novo **resource group** foi corretamente criado:\n\n>> az group show --output table --name=$(terraform output -raw reused_resource_group_name)",
       "line": 65,
       "selection": {
         "start": {
@@ -197,7 +197,7 @@
     },
     {
       "file": "main.tf",
-      "description": "Para verificar todos os **resource groups**:\n\n- **az group list --output table**",
+      "description": "Para verificar todos os **resource groups**:\n\n>> az group list --output table",
       "line": 66
     },
     {
@@ -250,17 +250,17 @@
     },
     {
       "file": "main.tf",
-      "description": "Devemos também fazer um novo **init** para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n- **terraform init**",
+      "description": "Devemos também fazer um novo **init** para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n>> terraform init",
       "line": 68
     },
     {
       "file": "main.tf",
-      "description": "Executar o plan:\n\n- **terraform plan**",
+      "description": "Executar o plan:\n\n>> terraform plan",
       "line": 69
     },
     {
       "file": "main.tf",
-      "description": "Executar o apply:\n\n- **terraform apply**",
+      "description": "Executar o apply:\n\n>> terraform apply",
       "line": 70
     },
     {
@@ -270,7 +270,7 @@
     },
     {
       "file": "main.tf",
-      "description": "Podemos verificar que a container app foi corretamente criada:\n\n- **az containerapp show --name=$(terraform output -raw container_app_name) --resource-group=$(terraform output -raw resource_group_name) --output table**",
+      "description": "Podemos verificar que a container app foi corretamente criada:\n\n>> az containerapp show --name=$(terraform output -raw container_app_name) --resource-group=$(terraform output -raw resource_group_name) --output table",
       "line": 94,
       "selection": {
         "start": {
@@ -285,7 +285,7 @@
     },
     {
       "file": "main.tf",
-      "description": "Para verificar todas as container apps:\n\n- **az containerapp list --output table**",
+      "description": "Para verificar todas as container apps:\n\n>> az containerapp list --output table",
       "line": 95
     },
     {
@@ -343,32 +343,32 @@
     },
     {
       "file": "main.tf",
-      "description": "Devemos também fazer um novo init para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n- **terraform init**",
+      "description": "Devemos também fazer um novo init para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n>> terraform init",
       "line": 100
     },
     {
       "file": "main.tf",
-      "description": "Executar o plan:\n\n- **terraform plan**",
+      "description": "Executar o plan:\n\n>> terraform plan",
       "line": 99
     },
     {
       "file": "main.tf",
-      "description": "Executar o apply:\n\n- **terraform apply**\n\n❗Não te esqueças de escrever yes para confirmar o apply.\n\n⌛Tempo do apply 2 min.",
+      "description": "Executar o apply:\n\n>> terraform apply\n\n❗Não te esqueças de escrever yes para confirmar o apply.\n\n⌛Tempo do apply 2 min.",
       "line": 98
     },
     {
       "file": "main.tf",
-      "description": "Podemos verificar que as container apps foram corretamente criadas:\n\n-  **for app_name in $(terraform output -json count_container_app_name | jq -r '.[]'); do**\n  **az containerapp show --name $app_name --resource-group $(terraform output -raw resource_group_name)** **--output table**\n\n**done**",
+      "description": "Podemos verificar que as container apps foram corretamente criadas:\n\n>> for app_name in $(terraform output -json count_container_app_name | jq -r '.[]'); do az containerapp show --name $app_name --resource-group $(terraform output -raw resource_group_name) --output table\n",
       "line": 121
     },
     {
       "file": "main.tf",
-      "description": "Para verificar todas as container apps:\n\n- **az containerapp list --output table**",
+      "description": "Para verificar todas as container apps:\n\n>> az containerapp list --output table",
       "line": 120
     },
     {
       "file": "main.tf",
-      "description": "Finalmente, Vamos voltar a correr este comando:\n\n- **az containerapp show --name=$(terraform output -raw container_app_name) --resource-group=$(terraform output -raw resource_group_name) --output table**",
+      "description": "Finalmente, Vamos voltar a correr este comando:\n\n>> az containerapp show --name=$(terraform output -raw container_app_name) --resource-group=$(terraform output -raw resource_group_name) --output table",
       "line": 119
     },
     {
@@ -388,7 +388,7 @@
     },
     {
       "file": "main.tf",
-      "description": "3. **Wrap-up & Destroy**\nPor fim, podemos destruir tudo de uma só vez.\n\nCorre o comando:\n\n- - **terraform destroy**\n\n⏰ Notem que devido à quantidade de recursos envolvidos, a operação de destroy pode demorar entre 10 a 15 minutos.\n\n🔚🏁 Chegámos ao fim 🏁🔚",
+      "description": "3. **Wrap-up & Destroy**\nPor fim, podemos destruir tudo de uma só vez.\n\nCorre o comando:\n\n>> terraform destroy\n\n⏰ Notem que devido à quantidade de recursos envolvidos, a operação de destroy pode demorar entre 10 a 15 minutos.\n\n🔚🏁 Chegámos ao fim 🏁🔚",
       "line": 123,
       "selection": {
         "start": {
