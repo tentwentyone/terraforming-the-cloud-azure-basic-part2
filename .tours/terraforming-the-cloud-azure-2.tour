@@ -358,7 +358,7 @@
     },
     {
       "file": "main.tf",
-      "description": "Podemos verificar que as container apps foram corretamente criadas:\n\n>> for app_name in $(terraform output -json count_container_app_name | jq -r '.[]'); do az containerapp show --name $app_name --resource-group $(terraform output -raw resource_group_name) --output table\n",
+      "description": "Podemos verificar que as container apps foram corretamente criadas:\n\n>> for app_name in $(terraform output -json count_container_app_name | jq -r '.[]'); do az containerapp show --name $app_name --resource-group $(terraform output -raw resource_group_name) --output table; done",
       "line": 121
     },
     {
