@@ -8,6 +8,11 @@ variable "subscription_id" {
   description = "The Azure subscription identifier."
 }
 variable "user_prefix" {
-  description = "Your custom prefix to use for all resources in this example"
   type        = string
+  description = "Este campo é obrigatório para definir a vossa unicidade."
+  ## Aqui podem verificar a utilização de uma regra de validação para o campo
+  validation {
+    condition     = can(regex("^[a-z]+$", var.user_prefix))
+    error_message = "Valor inválido. Tem que ser lower-case, sem números nem caracteres especiais."
+  }
 }
