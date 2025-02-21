@@ -19,7 +19,7 @@
     },
     {
       "file": "README.md",
-      "description": "Para definir a subscrição:\n\n- Seleciona-a de entre as opções disponíveis no teu terminal recorrendo ao Nº da mesma.\n\nAlternativamente executa o comando:\n\n- **az account set --subscription < insert-value > (Subscription ID ou Subscription Name)**\n\nSe quiseres ver todas as tuas subscrições utiliza:\n\n>> az account list --output table",
+      "description": "Para definir a subscrição:\n\n- Seleciona-a de entre as opções disponíveis no teu terminal recorrendo ao Nº da mesma.\n\nAlternativamente executa o comando:\n\n>> az account set --subscription tto-terraform-workshops-np\n\nSe quiseres ver todas as tuas subscrições utiliza:\n\n>> az account list --output table",
       "line": 3
     },
     {
@@ -34,8 +34,17 @@
     },
     {
       "file": "terraform.tfvars",
-      "description": "Após obteres os resultados do **AZURE_SUBSCRIPTION_ID** e **AZURE_TENANT_ID** define também um prefixo, no seguinte formato:\n\n- **user_prefix = \"valor\".**\n\n❗Garante que todas as tuas alterações estão salvas com o comando:\n\n- Windows: **ctrl+s**.\n- Mac: **cmd+s**.",
-      "line": 1
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 1,
+          "character": 17
+        }
+      },
+      "description": "Após obteres os resultados do **AZURE_SUBSCRIPTION_ID** e **AZURE_TENANT_ID** define também um prefixo, no seguinte formato:\n\n- **user_prefix = \"inserir-prefixo\".**\n\n⚠️ Seleciona um prefixo à tua escolha, garante que este está em minúsculas e sem caractéres especiais.\n\n❗Garante que todas as tuas alterações estão salvas com o comando:\n\n- Windows: **ctrl+s**.\n- Mac: **cmd+s**."
     },
     {
       "file": "modules/container-app/main.tf",
@@ -54,8 +63,17 @@
     },
     {
       "file": "main.tf",
-      "description": "1.1 **Resource Group Module**\n\nNeste capitulo vamos instanciar o nosso Resource Group com base num modulo.\n\nPara criarmos recursos invocando um module descomenta o conteúdo do exercício 1.1 com o comando:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**.",
-      "line": 29
+      "selection": {
+        "start": {
+          "line": 34,
+          "character": 1
+        },
+        "end": {
+          "line": 46,
+          "character": 1
+        }
+      },
+      "description": "1.1 **Resource Group Module**\n\nNeste capitulo vamos instanciar o nosso Resource Group com base num modulo.\n\nPara criarmos recursos invocando um module descomenta o conteúdo do exercício 1.1 com o comando:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**."
     },
     {
       "file": "main.tf",
@@ -67,11 +85,11 @@
       "selection": {
         "start": {
           "line": 35,
-          "character": 5
+          "character": 3
         },
         "end": {
           "line": 35,
-          "character": 40
+          "character": 38
         }
       },
       "description": "- Quando recorremos a um módulo, devemos indicar a sua source. Neste caso, estamos a apontar para **./modules/resource-group**."
@@ -107,7 +125,7 @@
     },
     {
       "file": "main.tf",
-      "description": "Podemos verificar que o resource group foi corretamente criado, usando o comando:\n\n>> az group show --output table --name=$(terraform output -raw resource_group_name)",
+      "description": "Podemos verificar que o resource group foi corretamente criado, usando o comando:\n\n>> az group show --output table --name=$(terraform output -raw resource_group_name)\n\nPara verificar todos os resource groups:\n\n>> az group list --output table",
       "line": 32,
       "selection": {
         "start": {
@@ -117,21 +135,6 @@
         "end": {
           "line": 3,
           "character": 83
-        }
-      }
-    },
-    {
-      "file": "main.tf",
-      "description": "Para verificar todos os resource groups:\n\n>> az group list --output table",
-      "line": 33,
-      "selection": {
-        "start": {
-          "line": 3,
-          "character": 5
-        },
-        "end": {
-          "line": 3,
-          "character": 33
         }
       }
     },
@@ -147,12 +150,21 @@
     },
     {
       "file": "main.tf",
-      "description": "Descomenta o module **reused_resource_group** (exercício 1.2)\n\nUtiliza o comando:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**.",
-      "line": 48
+      "selection": {
+        "start": {
+          "line": 53,
+          "character": 1
+        },
+        "end": {
+          "line": 64,
+          "character": 4
+        }
+      },
+      "description": "Descomenta o module **reused_resource_group** (exercício 1.2)\n\nUtiliza o comando:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**."
     },
     {
       "file": "main.tf",
-      "description": "❗Garante que todas as tuas alterações estão salvas com o comando:\n\n- Windows: **ctrl+s**.\n- Mac: **cmd+s**.\n\n⚠️ Como estamos a acrescentar um novo módulo, temos de correr o **terraform init** mais uma vez para ele ser instalado.",
+      "description": "❗Garante que todas as tuas alterações estão salvas com o comando:\n\n- Windows: **ctrl+s**.\n- Mac: **cmd+s**.",
       "line": 49,
       "selection": {
         "start": {
@@ -167,22 +179,12 @@
     },
     {
       "file": "main.tf",
-      "description": "Executar o init:\n\n>> terraform init",
+      "description": "⚠️ Como estamos a acrescentar um novo módulo, temos de correr o **terraform init** mais uma vez para ele ser instalado.\n\nExecutar o init:\n\n>> terraform init\n\nExecutar o plan:\n\n>> terraform plan\n\nExecutar o apply:\n\n>> terraform apply\n\n❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 30 sec.",
       "line": 47
     },
     {
       "file": "main.tf",
-      "description": "Executar o plan:\n\n>> terraform plan",
-      "line": 48
-    },
-    {
-      "file": "main.tf",
-      "description": "Executar o apply:\n\n>> terraform apply\n\n❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 30 sec.",
-      "line": 49
-    },
-    {
-      "file": "main.tf",
-      "description": "Podemos verificar que o novo **resource group** foi corretamente criado:\n\n>> az group show --output table --name=$(terraform output -raw reused_resource_group_name)",
+      "description": "Podemos verificar que o novo **resource group** foi corretamente criado:\n\n>> az group show --output table --name=$(terraform output -raw reused_resource_group_name)\n\nPara verificar todos os **resource groups**:\n\n>> az group list --output table",
       "line": 65,
       "selection": {
         "start": {
@@ -194,11 +196,6 @@
           "character": 46
         }
       }
-    },
-    {
-      "file": "main.tf",
-      "description": "Para verificar todos os **resource groups**:\n\n>> az group list --output table",
-      "line": 66
     },
     {
       "file": "main.tf",
@@ -217,22 +214,31 @@
     },
     {
       "file": "main.tf",
-      "description": "Vamos utilizar um módulo para a criação de uma **Container App**.\n\n- Descomenta o module **azure_container_app** (exercício 2.1)\n\nUtiliza o comando:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**.",
-      "line": 68
+      "selection": {
+        "start": {
+          "line": 74,
+          "character": 1
+        },
+        "end": {
+          "line": 94,
+          "character": 4
+        }
+      },
+      "description": "Vamos utilizar um módulo para a criação de uma **Container App**.\n\n- Descomenta o module **azure_container_app** (exercício 2.1)\n\nUtiliza o comando:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**."
     },
     {
       "file": "main.tf",
       "selection": {
         "start": {
           "line": 75,
-          "character": 5
+          "character": 3
         },
         "end": {
-          "line": 76,
-          "character": 83
+          "line": 75,
+          "character": 37
         }
       },
-      "description": "- Nos argumentos **resource_group_name** e **resource_group_location** estamos a fazer alusão aos campos que provém do **módulo resource_group.**\n"
+      "description": "- Nos argumentos **resource_group_name** e **resource_group_location** estamos a fazer alusão aos campos que provém do **módulo resource_group.**"
     },
     {
       "file": "main.tf",
@@ -250,27 +256,12 @@
     },
     {
       "file": "main.tf",
-      "description": "Devemos também fazer um novo **init** para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n>> terraform init",
+      "description": "Devemos também fazer um novo **init** para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n>> terraform init\n\nExecutar o plan:\n\n>> terraform plan\n\nExecutar o apply:\n\n>> terraform apply\n\n❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 2 min.",
       "line": 68
     },
     {
       "file": "main.tf",
-      "description": "Executar o plan:\n\n>> terraform plan",
-      "line": 69
-    },
-    {
-      "file": "main.tf",
-      "description": "Executar o apply:\n\n>> terraform apply",
-      "line": 70
-    },
-    {
-      "file": "main.tf",
-      "description": "❗Não te esqueças de escrever **yes** para confirmar o apply.\n\n⌛Tempo do apply 2 min.",
-      "line": 71
-    },
-    {
-      "file": "main.tf",
-      "description": "Podemos verificar que a container app foi corretamente criada:\n\n>> az containerapp show --name=$(terraform output -raw container_app_name) --resource-group=$(terraform output -raw resource_group_name) --output table",
+      "description": "Podemos verificar que a container app foi corretamente criada:\n\n>> az containerapp show --name=$(terraform output -raw container_app_name) --resource-group=$(terraform output -raw resource_group_name) --output table\n\nPara verificar todas as container apps:\n\n>> az containerapp list --output table",
       "line": 94,
       "selection": {
         "start": {
@@ -285,11 +276,6 @@
     },
     {
       "file": "main.tf",
-      "description": "Para verificar todas as container apps:\n\n>> az containerapp list --output table",
-      "line": 95
-    },
-    {
-      "file": "main.tf",
       "description": "2.2 **Invocar o módulo count_azure_container_app**.\n\n- Utilizamos o meta-argumento (argumentos especiais para ir para lá da definição original do recurso) **count** para atingir o objectivo de criar múltiplas instâncias dos recursos definidos no módulo sem termos de criar blocos de recursos adicionais na nossa configuração ou fazer multiplas invocações do mesmo módulo.",
       "line": 96
     },
@@ -297,15 +283,15 @@
       "file": "main.tf",
       "selection": {
         "start": {
-          "line": 101,
+          "line": 103,
           "character": 1
         },
         "end": {
-          "line": 101,
-          "character": 37
+          "line": 120,
+          "character": 4
         }
       },
-      "description": "Descomenta o modulo **count_azure_container_app** (exercício 2.2)\n\nPara tal seleciona o conteúdo e prime:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**."
+      "description": "Descomenta o modulo **count_azure_container_app** (exercício 2.2)\n\nPara tal seleciona o conteúdo e prime:\n\n- Windows: **ctrl+k+u**\n- Mac: **cmd+k+u**.\n\n❗Garante que todas as tuas alterações estão salvas com o comando:\n\n- Windows: **ctrl+s**.\n- Mac: **cmd+s**.\n"
     },
     {
       "file": "main.tf",
@@ -338,23 +324,8 @@
     },
     {
       "file": "main.tf",
-      "description": "❗Garante que todas as tuas alterações estão salvas com o comando:\n\n- Windows: **ctrl+s**.\n- Mac: **cmd+s**.\n",
-      "line": 99
-    },
-    {
-      "file": "main.tf",
-      "description": "Devemos também fazer um novo init para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n>> terraform init",
+      "description": "Devemos também fazer um novo init para instalar o novo módulo. Isto incluí quaisquer invocações.\n\nExecutar o init:\n\n>> terraform init\n\nExecutar o plan:\n\n>> terraform plan\n\nExecutar o apply:\n\n>> terraform apply\n\n❗Não te esqueças de escrever yes para confirmar o apply.\n\n⌛Tempo do apply 2 min.",
       "line": 100
-    },
-    {
-      "file": "main.tf",
-      "description": "Executar o plan:\n\n>> terraform plan",
-      "line": 99
-    },
-    {
-      "file": "main.tf",
-      "description": "Executar o apply:\n\n>> terraform apply\n\n❗Não te esqueças de escrever yes para confirmar o apply.\n\n⌛Tempo do apply 2 min.",
-      "line": 98
     },
     {
       "file": "main.tf",
@@ -368,23 +339,8 @@
     },
     {
       "file": "main.tf",
-      "description": "Finalmente, Vamos voltar a correr este comando:\n\n>> az containerapp show --name=$(terraform output -raw container_app_name) --resource-group=$(terraform output -raw resource_group_name) --output table",
+      "description": "Finalmente, Vamos voltar a correr este comando:\n\n>> az containerapp show --name=$(terraform output -raw container_app_name) --resource-group=$(terraform output -raw resource_group_name) --output table\n\n- Copia o link da coluna **FQDN** e colar no nosso browser numa janela/tab à parte no teu browser.",
       "line": 119
-    },
-    {
-      "file": "main.tf",
-      "description": "- Copia o link da coluna **FQDN** e colar no nosso browser numa janela/tab à parte no teu browser.",
-      "line": 122,
-      "selection": {
-        "start": {
-          "line": 1,
-          "character": 28
-        },
-        "end": {
-          "line": 1,
-          "character": 32
-        }
-      }
     },
     {
       "file": "main.tf",
